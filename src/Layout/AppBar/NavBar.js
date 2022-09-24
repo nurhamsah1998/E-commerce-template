@@ -13,8 +13,10 @@ import MenuIcon from "@mui/icons-material/Menu";
 import SearchIcon from "@mui/icons-material/Search";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Button from "@mui/material/Button";
-import { Outlet, useNavigate } from "react-router-dom";
+import PersonIcon from "@mui/icons-material/Person";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import { navigationLink } from "../../Navigation/AppBarConfig";
 import { Link, TextField } from "@mui/material";
 
@@ -29,6 +31,7 @@ function NavBar(props) {
     setMobileOpen(!mobileOpen);
   };
   const navigate = useNavigate();
+  const location = useLocation();
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
@@ -52,7 +55,10 @@ function NavBar(props) {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <AppBar sx={{ boxShadow: "none", zIndex: 9999 }} component="nav">
+      <AppBar
+        sx={{ boxShadow: "none", zIndex: 9999, bgcolor: "transparent" }}
+        component="nav"
+      >
         <Toolbar
           sx={{
             display: "flex",
@@ -106,6 +112,7 @@ function NavBar(props) {
                   }}
                 >
                   <Typography
+                    fontSize={15}
                     component="button"
                     color="#000"
                     onClick={() => navigate(item.path)}
@@ -113,6 +120,9 @@ function NavBar(props) {
                       background: "none",
                       border: "none",
                       cursor: "pointer",
+                      borderBottom: location.pathname?.includes(item.path)
+                        ? "2px solid #000"
+                        : "none",
                       transition: "0.2s",
                       "&:hover": {
                         borderBottom: "1px solid #000",
@@ -123,6 +133,16 @@ function NavBar(props) {
                   </Typography>
                 </Box>
               ))}
+              <Box
+                sx={{ display: "flex", alignItems: "center", ml: 2, gap: 1 }}
+              >
+                <ListItemButton color="secondary">
+                  <ShoppingCartIcon />
+                </ListItemButton>
+                <ListItemButton>
+                  <PersonIcon />
+                </ListItemButton>
+              </Box>
             </Box>
           </Box>
         </Toolbar>
@@ -147,7 +167,7 @@ function NavBar(props) {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ p: 1 }}>
+      <Box component="main" sx={{ p: 2, width: "100%" }}>
         <Toolbar />
         <Outlet />
       </Box>

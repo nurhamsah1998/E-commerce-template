@@ -36,10 +36,8 @@ function SideBarMenu(props) {
         {SideBarConfig.map((item, index) => (
           <ListItem key={index} disablePadding>
             <ListItemButton onClick={() => navigate(item.path)}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText primary={item.title} />
+              <ListItemIcon>{item.icon}</ListItemIcon>
+              <Typography fontSize={15}>{item.title}</Typography>
             </ListItemButton>
           </ListItem>
         ))}
@@ -52,7 +50,6 @@ function SideBarMenu(props) {
 
   return (
     <Box sx={{ display: "flex" }}>
-      <CssBaseline />
       <Box
         component="nav"
         sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
@@ -85,9 +82,10 @@ function SideBarMenu(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              bgcolor: "transparent",
             },
             " .css-12i7wg6-MuiPaper-root-MuiDrawer-paper": {
-              borderRight: " 1px solid #fff",
+              borderRight: "none",
             },
           }}
           open
@@ -99,6 +97,7 @@ function SideBarMenu(props) {
         component="main"
         sx={{
           flexGrow: 1,
+          bgcolor: "transparent",
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}
       >
