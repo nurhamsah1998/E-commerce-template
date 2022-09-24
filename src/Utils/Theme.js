@@ -6,7 +6,7 @@ function Theme({ children }) {
   const theme = createTheme({
     palette: {
       primary: {
-        main: yellow[600],
+        main: "#fff",
       },
       secondary: {
         main: cyan[100],
@@ -38,6 +38,15 @@ function Theme({ children }) {
               boxShadow: "none",
             },
             boxShadow: "none",
+          },
+        },
+      },
+      MuiOutlinedInput: {
+        styleOverrides: {
+          root: {
+            "& .MuiOutlinedInput-notchedOutline": {
+              border: "none",
+            },
           },
         },
       },

@@ -1,13 +1,9 @@
 import logo from "./logo.svg";
-import "./App.css";
 import { Button } from "@mui/material";
+import Routing from "./routing";
 
 function App() {
-  return (
-    <div className="App">
-      <Button>asd</Button>
-    </div>
-  );
+  return <Routing />;
 }
 
 export default App;

@@ -4,13 +4,16 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Theme from "./Utils/Theme";
+import Routes from "./Utils/Routes";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Theme>
-      <App />
-    </Theme>
+    <Routes>
+      <Theme>
+        <App />
+      </Theme>
+    </Routes>
   </React.StrictMode>
 );
 
