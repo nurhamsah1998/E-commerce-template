@@ -7,22 +7,22 @@ function Clothing() {
   const fakeDataMaker = (params) => {
     const data = [];
     for (let i = 0; i < params; i++) {
-      const images = faker.image.animals(1234, 2345, true);
+      const images = faker.image.food(640, 480, true);
       const fakeName = faker.commerce.product();
-      const fakePrice = faker.finance.account(5);
-
-      console.log(images);
+      const fakePrice = faker.finance.account(2);
+      const randomBoolean = Math.floor(Math.random() * 3);
       data.push({
         title: fakeName,
         price: fakePrice,
         image: images,
+        isHotSale: randomBoolean === 2 ? "normal" : Boolean(randomBoolean),
       });
+      console.log(randomBoolean);
     }
 
     return data;
   };
   const fake = fakeDataMaker(20);
-  console.log(fake);
   return (
     <Box>
       <Grid
@@ -35,9 +35,10 @@ function Clothing() {
       >
         {fake?.map((item, index) => (
           <ProductCard
-            title={item.title}
+            isHotSale={item?.isHotSale}
+            title={item?.title}
             image={item?.image}
-            price={item.price}
+            price={item?.price}
             key={index}
           />
         ))}
