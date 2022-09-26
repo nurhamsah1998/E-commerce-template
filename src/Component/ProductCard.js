@@ -2,7 +2,7 @@ import { Box, Grid, Typography } from "@mui/material";
 import { cyan } from "@mui/material/colors";
 import React from "react";
 
-function ProductCard({ title, price }) {
+function ProductCard({ title, price, image }) {
   return (
     <Grid
       item
@@ -21,7 +21,10 @@ function ProductCard({ title, price }) {
             transform: "translateY(-5px)",
             boxShadow: "#000 5px 5px 9px -5px",
           },
-          bgcolor: "gray",
+          backgroundImage: `url(${image})`,
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "100% 100%",
+          backgroundPosition: "center",
           width: "100%",
           height: "100%",
           position: "relative",

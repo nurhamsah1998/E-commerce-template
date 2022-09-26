@@ -12,7 +12,7 @@ function Background({ children }) {
           backgroundImage: 'url("/asset/bg-main.svg")',
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
-          position: "absolute",
+          position: "fixed",
           zIndex: -11,
         }}
       />

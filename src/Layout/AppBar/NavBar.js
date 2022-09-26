@@ -56,7 +56,15 @@ function NavBar(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <AppBar
-        sx={{ boxShadow: "none", zIndex: 9999, bgcolor: "transparent" }}
+        sx={{
+          boxShadow: "none",
+          zIndex: 9,
+          bgcolor: "transparent",
+          backgroundImage: 'url("/asset/bg-main.svg")',
+          backgroundRepeat: "no-repeat",
+          backgroundSize: "cover",
+          position: "fixed",
+        }}
         component="nav"
       >
         <Toolbar
