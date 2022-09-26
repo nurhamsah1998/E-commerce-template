@@ -9,7 +9,7 @@ function Background({ children }) {
         sx={{
           height: "100vh",
           width: "100%",
-          backgroundImage: 'url("/asset/background.svg")',
+          backgroundImage: 'url("/asset/bg-main.svg")',
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
           position: "absolute",
