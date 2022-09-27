@@ -3,33 +3,14 @@ import { cyan, red, yellow } from "@mui/material/colors";
 import React from "react";
 
 function ProductCard({ title, price, image, isHotSale }) {
-  const hotSale = isHotSale ? (
-    <Typography
-      sx={{
-        bgcolor: yellow[500],
-        px: 1,
-        borderRadius: "10px",
-        fontSize: 14,
-      }}
-    >
-      New!
-    </Typography>
-  ) : (
-    <Typography
-      sx={{
-        bgcolor: red[500],
-        px: 1,
-        borderRadius: "10px",
-        fontSize: 14,
-        color: "#fff",
-      }}
-    >
-      Hot!
-    </Typography>
-  );
   return (
     <Grid
       item
+      xs={6}
+      sm={4}
+      md={4}
+      lg={4}
+      xl={3}
       sx={{
         cursor: "pointer",
         borderRadius: "10px 10px 10px 10px",
@@ -45,7 +26,13 @@ function ProductCard({ title, price, image, isHotSale }) {
         },
       }}
     >
-      <Box sx={{ width: 240, height: 240, position: "relative" }}>
+      <Box
+        sx={{
+          width: "100%",
+          height: { xs: 150, sm: 240, md: 240 },
+          position: "relative",
+        }}
+      >
         <Box
           sx={{
             bgcolor: "blue",
@@ -64,17 +51,29 @@ function ProductCard({ title, price, image, isHotSale }) {
             height: "100%",
             top: 0,
             position: "absolute",
-            borderRadius: "10px 10px 10px 10px",
+            borderRadius: "10px 10px 0px 0px",
           }}
         >
           <Box
             sx={{
               display: "flex",
               justifyContent: "flex-end",
-              p: 1,
+              p: 2,
             }}
           >
-            {isHotSale === "normal" ? null : hotSale}
+            {isHotSale ? (
+              <Typography
+                sx={{
+                  bgcolor: red[500],
+                  px: 1,
+                  borderRadius: "10px",
+                  fontSize: 17,
+                  color: "#fff",
+                }}
+              >
+                Hot!
+              </Typography>
+            ) : null}
           </Box>
         </Box>
       </Box>

@@ -15,9 +15,8 @@ function Clothing() {
         title: fakeName,
         price: fakePrice,
         image: images,
-        isHotSale: randomBoolean === 2 ? "normal" : Boolean(randomBoolean),
+        isHotSale: Boolean(randomBoolean),
       });
-      console.log(randomBoolean);
     }
 
     return data;
@@ -29,7 +28,7 @@ function Clothing() {
         container
         direction="row"
         alignItems="center"
-        justifyContent="center"
+        justifyContent={{ xs: "space-between", sm: "center", md: "center" }}
         columnSpacing={1}
         rowGap={2}
       >
