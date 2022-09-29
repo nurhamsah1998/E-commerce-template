@@ -1,5 +1,5 @@
 import { Box, Grid, Typography } from "@mui/material";
-import { cyan, red, yellow } from "@mui/material/colors";
+import { cyan, grey, red, yellow } from "@mui/material/colors";
 import React from "react";
 
 function ProductCard({ title, price, image, isHotSale }) {
@@ -35,12 +35,20 @@ function ProductCard({ title, price, image, isHotSale }) {
       >
         <Box
           sx={{
-            bgcolor: "blue",
+            bgcolor: grey[400],
             width: "100%",
             height: "100%",
             borderRadius: "10px 10px 0px 0px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
-        />
+        >
+          <Typography fontWeight={600} color={grey[800]} textAlign="center">
+            E-Commerce By
+            <br /> Nurhamsah
+          </Typography>
+        </Box>
         <Box
           sx={{
             backgroundImage: `url(${image})`,
